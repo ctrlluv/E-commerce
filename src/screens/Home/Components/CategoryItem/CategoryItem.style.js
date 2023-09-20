@@ -8,6 +8,11 @@ export default styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 5,
+        width: '85%',
+        minWidth: 90,
+        maxWidth: 500,
+        height: 50,
+        minHeight: 40,
     },
     text: {
         color: 'black',
