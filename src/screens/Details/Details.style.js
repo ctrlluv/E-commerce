@@ -5,7 +5,6 @@ export default styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: 'black',
-
     },
     image: {
         height: '40%',
