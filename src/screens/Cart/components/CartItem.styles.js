@@ -7,9 +7,10 @@ export default styles = StyleSheet.create({
         padding: 8,
         borderBottomWidth: 1,
         borderBottomColor: colors.primary,
+        marginTop: 10,
     },
     name: {
-        fontSize: 18,
+        fontSize: 25,
         color: colors.secondary,
         fontFamily: 'PoppinsThinItalic',
     },
@@ -23,9 +24,14 @@ export default styles = StyleSheet.create({
     cantidad: {
         color: colors.secondary,
         fontFamily: 'PoppinsMediumItalic',
+        fontSize: 20,
     },
     price: {
         color: colors.secondary,
         fontFamily: 'PoppinsMediumItalic',
+        fontSize: 20,
+    },
+    image: {
+        
     }
 })

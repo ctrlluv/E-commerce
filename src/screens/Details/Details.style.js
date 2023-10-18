@@ -7,9 +7,13 @@ export default styles = StyleSheet.create({
         backgroundColor: 'black',
     },
     image: {
-        height: '40%',
-        width: '80%',
-        marginLeft: 35,
+        height: '100%',
+        width: '100%',
+        
+    },
+    imageContainer: {
+       width: '100%',
+       height: '40%',
     },
     title: {
         fontSize: 30,
@@ -28,4 +32,10 @@ export default styles = StyleSheet.create({
         fontSize: 20,
         fontFamily: 'PoppinsMediumItalic',
     },
+    buttonAdd: {
+        color: colors.primary,
+        fontFamily: 'PoppinsMediumItalic',
+        fontSize: 24,
+        
+    }
 })

@@ -1,19 +1,28 @@
-import { View, Text, Pressable } from 'react-native'
+import { View, Text, Pressable, Image } from 'react-native'
 import React from 'react'
 import Feather from '@expo/vector-icons/Feather'
 import styles from './CartItem.styles'
 import { colors } from '../../../constants/colors'
+import { SafeAreaView } from 'react-native-safe-area-context'
 
-const CartItem = () => {
+const CartItem = ({item}) => {
   return (
     <View style={styles.container}>
       <View>
-        <Text style={styles.name}>Nombre</Text>
+        <Image 
+        style={styles.image}
+        source={{
+          uri: item.images[0],
+        }}
+        />
+      </View>
+      <View>
+        <Text style={styles.name}>{item.title}</Text>
       </View>
       <View style={styles.details}>
         <View>
-            <Text style={styles.cantidad}>Cantidad</Text>
-            <Text style={styles.price}>Precio</Text>
+            <Text style={styles.cantidad}>{item.quantity}</Text>
+            <Text style={styles.price}>{item.price}</Text>
         </View>
         <Pressable>
             <Feather name='trash' size={24} color= {colors.primary} />

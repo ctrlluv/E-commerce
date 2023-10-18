@@ -3,37 +3,32 @@ import React, { useEffect, useState } from 'react'
 import allProducts from '../../data/products'
 import styles from './Products.style'
 import { Header, SearchInput } from '../../Components'
+import { useSelector } from 'react-redux'
+import { useGetProductsByCategoryQuery } from '../../services/shopApi'
 
-const Products = ({ navigation, route }) => {
-
-  const [arrProducts, setArrProducts] = useState([])
+const Products = ({ navigation }) => {
+  const category = useSelector(state => state.shop.categorySelected)
   const [keyword, setKeyword] = useState('')
-  const {category} = route.params
+  const { data, isLoading } = useGetProductsByCategoryQuery(category)
+  
 
   useEffect(() => {
-   if (category) {
-     const products = allProducts.filter(
-      product => product.category === category
-      )
-      const productsFiltered = products.filter(product => 
+   if (data) {
+      const productsFiltered = data.filter(product => 
       product.title.includes(keyword)
       )
-      setArrProducts(productsFiltered)
-   } else {
-    const productsFiltered = allProducts.filter(product => 
-      product.title.includes(keyword)
-      )
-      setArrProducts(productsFiltered)
-   }
-  }, [category, keyword])
+  
+   } 
+  }, [])
 
   return (
     <View style={styles.container}>
       <Header title={category}/>
       <SearchInput onSearch={setKeyword}/>
       <View style={styles.listContainer}>
+        {!isLoading && (
         <FlatList 
-          data={arrProducts}
+          data={Object.values(data)}
           renderItem={({ item }) => (
             <TouchableOpacity onPress={() => navigation.navigate('Details', {product: item})}>
               <Text style={styles.item}>{item.title}</Text>
@@ -41,6 +36,7 @@ const Products = ({ navigation, route }) => {
           )}
           keyExtractor={item => item.id}
         />
+        )}
       </View>
     </View>
   )

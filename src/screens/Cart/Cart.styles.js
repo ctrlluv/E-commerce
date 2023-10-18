@@ -7,11 +7,19 @@ export default styles = StyleSheet.create({
         backgroundColor: 'black',
     },
     confirm: {
-        color: colors.secondary,
+        color: 'black',
+        fontFamily: 'PoppinsThinItalic',
+        fontSize: 30,
+        marginTop: 10,
+    
     },
     total: {
-        color: colors.secondary,
+        color: 'black',
         fontFamily: 'PoppinsThinItalic',
         fontSize: 20,
+    },
+    buttonContainer: {
+        backgroundColor: colors.primary,
+        alignItems: 'center',
     }
 })
